@@ -1,0 +1,15 @@
+open terminal
+sudo service apache2 start
+Open Burpsuit tool in system
+Click next and start
+Go to Proxy-->Http history-->open browser
+Login to DVWA application in the browser-->127.0.0.1/DVWA
+username: admin
+password: password
+-->DVWA Security-->change impossible to low and click on submit
+-->SQL Injection-->enter User ID as :4 and submit
+Now open Burpsuit in last session and in response tab we will see that
+ID: 4
+First name: Pablo
+SuIname: Picasso
+----------end------------------

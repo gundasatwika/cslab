@@ -1,0 +1,50 @@
+2a-)Recon-ng:
+recon-ng
+marketplace install recon/domains-hosts/netcraft 
+marketplace install recon/hosts-hosts/resolve 
+marketplace install recon/domains-hosts/hackertarget 
+marketplace install recon/domains-contacts/whois_pocs
+modules load recon/domains-hosts/netcraft 
+info 
+options set source google.com
+run
+(RESOLVING:)
+modules load recon/hosts-hosts/resolve
+info
+options set source facebook.com
+run
+(Hackertarget:)
+modules load recon/domains-hosts/hackertarget
+info
+options set source facebook.com 
+run
+(whois_pocs:)
+modules load recon/domains-contacts/whois_pocs 
+info
+options set source facebook.com
+run
+----------------------------------------------
+2b-)Nmap: 
+nmap gmail.com 
+ifconfig 
+sudo nmap -O 192.168.136.131
+sudo nmap -p 80 192.168.136.131
+sudo nmap -p 21,80,8080 192.168.136.131
+sudo nmap -p- 192.168.136.131
+sudo nmap -sP 192.168.136.*
+sudo nmap -PN 192.168.136.1
+--------------------------------------------
+2c-)Dmitry:
+dmitry
+dmitry -i becbapatla.ac.in
+dmitry -w becbapatla.ac.in
+dmitry -s becbapatla.ac.in
+dmitry -winespo bapatla.txt becbapatla.ac.in
+-------------------------------------------
+2d-)Netdiscover
+netdiscover
+netdiscover -r <your_ip>/16(192.168.153.0/16)
+netdiscover -i eth0
+
+
+

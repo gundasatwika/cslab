@@ -1,0 +1,28 @@
+sudo su
+cd /var/www/html
+apt-get update
+git clone https://github.com/digininja/DVWA.git 
+chmod –R 777 DVWA 
+cd DVWA/config 
+cp config.inc.php.dist config.inc.php 
+nano config.inc.php
+  ---->‘’db_user’’ = ‘’name’’ 
+  ---->‘’db_password’’ = ‘’password’’ 
+service mysql start
+mysql –u root 
+  create user ‘name’@’127.0.0.1’ identified by ‘password’; 
+  grant all privileges on dvwa.* to ‘name’@’127.0.0.1’ identified by ‘password’;
+  use mysql
+  create database dvwa;
+Open a new terminal:
+service apache2 start 
+cd /etc/php/7.4<dependa on version>/apache2 
+vi php.ini -->870line allow_url_fopen = On 
+		      allow_url_include = On 
+IN BROWSER http://127.0.0.1/DVWA
+username: admin
+password: password
+
+Choose the option “Create/Reset Database”
+and close the tab and reopen it
+Now we can access the dvwa applications

@@ -1,0 +1,28 @@
+sudo su
+iptables -L
+
+To block a Sepecific Site
+-------------------------
+host -t a gmail.com
+whois 142.250.66.5 | gerp CIDR
+     output: range=142.250.0.0/15
+Blocking: iptables -A OUTPUT -d 142.250.0.0/15 -j DROP(gmail is not working)
+Unblocking: iptables -D OUTPUT -d 142.250.0.0/15 -j DROP(gmail not working)
+  
+
+To avoid ping connection
+-------------------------
+iptables -A INPUT -p icmp -j DROP 
+iptables -L
+ping google.com (wait for 3 to 5 sec after executing the command and press ctrl+c)
+    --->It will show blocking of packets
+	--- google.com ping statistics ---
+	2 packets transmitted, 0 received, 100% packet loss, time 1027ms
+To unblock :
+iptables -D INPUT -p icmp -j DROP 
+ping google.com  (it will receive packets now)
+
+To avoid TCP Connection
+-----------------------
+iptables -A INPUT -p tcp -j DROP (It will block all websites.check any website)
+iptables -D INPUT -p tcp -j DROP (For unblocking)

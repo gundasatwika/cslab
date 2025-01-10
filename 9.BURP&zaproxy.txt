@@ -1,0 +1,20 @@
+9a:)
+open burpsuit
+open browswer--->gmail.com
+HTTPS requests
+---------------------------------------------
+9b-Zaproxy:)
+apt install zaproxy
+zaproxy(a window is opened)
+Choose 1st opt
+choose automated sacn
+give dvwa url 
+click on attack
+--->if it does not work do below steps 
+open terminal:
+--------------
+service apache2 start
+service mysql start
+
+after click on attack
+Show Alerts( For check the vulnerabilities)

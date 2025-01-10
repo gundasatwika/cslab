@@ -1,0 +1,55 @@
+Open Metasploitable2 in VMware
+login metasploitable login: msfadmin
+		password  : msfadmin
+After login -->ifconfig(copy the ip)
+
+open terminal 
+------------
+hydra
+hydra -l msfadmin -p msfadmin ftp://<ip> (ex:192.168.136.130)
+
+open text editor add four lines as:
+admin
+user
+msfadmin
+itsme
+
+Save the file as password.txt
+
+hydra -l msfadmin -P password.txt ftp://<ip>(192.168.136.130)
+--------------------------------------------
+xhydra(a window will be opened)
+
+In that window Change:
+Single Target: <your ip>(ex:192.168.136.130)
+Protocol : ftp
+Port : 21
+------------------
+Go to Password tab:
+Username : msfadmin
+Password : msfadmin
+------------------
+Go to Start tab:
+ Click on start button(Login Successful)
+ Click on Stop button and clear output
+---------------
+Go to Passwords Tab:
+Click PasswordList in password section and chose the password.txt file
+Now Go to Start tab and start the session(Check the output)
+and Stop the session and close it
+-------------------------------------------------
+JOHN the ripper:
+open terminal and run these commands:(t1)
+-----------------------------------------
+echo -n 'abc123'|md5sum(output:e99a18c428cb38d5f260853678922e03 )
+echo -n 'admin'|md5sum (output:21232f297a57a5a743894a0e4a801fc3)
+echo -n 'qwerty'|md5sum(output:d8578edf8458ce06fbc5bb76a58c5ca4)
+---------------------------------------------------------------
+Save the outputs in one file and name them as "hash.txt"
+Open another file and save the files with multiple passwords like
+(welcome,passw0rd,qwerty,cyber,abc123,monkey,admin,password) and save it as norma.txt
+-----------------------------------------------------------------------
+cd /home/sai(syatem_name)
+john --format=raw-md5 hash.txt normal.txt (shows output as hoe many are correct)
+john --format=raw-md5 hash.txt normal.txt --show(shows correct passwords)
+

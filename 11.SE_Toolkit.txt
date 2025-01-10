@@ -1,0 +1,18 @@
+Open terminal:
+setoolkit
+Choose Social-Engineering Attacks by giving “1” 
+Choose Website Attack Vectors by giving “2” 
+Choose Credential Harvester Attack Method by giving “3” 
+Choose Web Templates by giving “1” 
+Choose Google Website by giving “2”
+Open browser and enter IP Address(192.168.153.131)//google login page will come
+Enter your details 
+(The credentials is seen in your terminal)
+------------------------------------------------
+setoolkit
+Choose Social-Engineering Attacks by giving “1” 
+Choose Website Attack Vectors by giving “2” 
+Choose Credential Harvester Attack Method by giving “3” 
+Choose Site Cloner by giving “2”
+Enter a website link: www.facebook.com
+Open browser and enter IP Address and enter details. 

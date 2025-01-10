@@ -1,0 +1,23 @@
+sudo su
+sudo apt install snort
+sudo nano /etc/snort/rules/local.rules
+  (AFTER # LOCAL RULES ADD THESE THREE LINES)
+alert icmp any any -> any any (msg:"ICMP Packet"; sid:477; rev:3;)
+alert tcp any any -> any any (content:"www.facebook.com"; msg:"whoa! Some one Is visiting facebook at this time "; sid:10000009; rev:1;)
+alert tcp any any -> 192.168.1.10 80 (msg:"Tcp packets are coming";sid:10001;)
+
+
+Open new terminal-1
+-----------------
+sudo snort -c /etc/snort/snort.lua -R /etc/snort/rules/local.rules -i eth0 -A alert_fast -s 65535 -k none
+
+
+Open new terminal-2
+-------------------
+ping facebook.com(to verify that message "ICMP Packet" is coming in the terminal where snort command ran in t1)
+(after some time in t1 output is coming)
+open browser and search facebook.com(check the changes in t1)
+after that ctrl+c in t2
+and type ping 192.168.1.0 80 and enter(To verify that message "Tcp packets" are coming in t1)
+now we can see the output in t1
+----------------end----------------
